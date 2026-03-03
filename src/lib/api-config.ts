@@ -1,0 +1,63 @@
+/**
+ * Centralized API configuration
+ */
+export const API_CONFIG = {
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000",
+  endpoints: {
+    auth: {
+      login: "/api/auth/login",
+      refresh: "/api/auth/refresh",
+      me: "/api/auth/me",
+      preferences: "/api/auth/me/preferences",
+    },
+    requests: "/api/requests",
+    requestDetail: (id: string | number) => `/api/requests/${id}`,
+    requestUpdate: (id: string | number) => `/api/requests/${id}`,
+    requestDelete: (id: number) => `/api/requests/${id}/delete`,
+    requestsBulkDelete: "/api/requests/bulk-delete",
+    requestSubmit: (id: string | number) => `/api/requests/${id}/submit`,
+    requestApprove: (id: string | number) => `/api/requests/${id}/approve`,
+    requestReject: (id: string | number) => `/api/requests/${id}/reject`,
+    requestUploadInvoice: (id: string | number) => `/api/requests/${id}/upload-invoice`,
+    documents: {
+      upload: "/api/documents/upload",
+      download: (id: number) => `/api/documents/${id}/download`,
+    },
+    invoices: "/api/invoices",
+    invoiceDetail: (id: string | number) => `/api/invoices/${id}`,
+    invoiceMatch: (id: string | number, reqId: string | number) =>
+      `/api/invoices/${id}/match-request/${reqId}`,
+    invoiceSetStatus: (id: string | number) => `/api/invoices/${id}/set-status`,
+    invoiceMarkPaid: (id: string | number) => `/api/invoices/${id}/mark-paid`,
+    invoiceDelete: (id: string | number) => `/api/invoices/${id}`,
+    assets: "/api/assets",
+    assetDetail: (id: string | number) => `/api/assets/${id}`,
+    assetUpdate: (id: string | number) => `/api/assets/${id}`,
+    assetDelete: (id: string | number) => `/api/assets/${id}`,
+    subscriptions: "/api/subscriptions",
+    subscriptionDetail: (id: string | number) => `/api/subscriptions/${id}`,
+    subscriptionDelete: (id: string | number) => `/api/subscriptions/${id}`,
+    renewals: "/api/subscriptions/renewals",
+    reports: {
+      spend: "/api/reports/spend",
+      subscriptionsMonthly: "/api/reports/subscriptions/monthly",
+    },
+    vendors: "/api/vendors",
+    vendorDelete: (id: number) => `/api/vendors/${id}`,
+    vendorUpdate: (id: number) => `/api/vendors/${id}`,
+    locations: "/api/locations",
+    sectors: "/api/sectors",
+    notifications: "/api/notifications",
+    notificationsUnreadCount: "/api/notifications/unread-count",
+    settings: { email: "/api/settings/email" },
+    users: {
+      approvers: "/api/users/approvers",
+      list: "/api/users",
+      create: "/api/users",
+      approverScope: (id: number) => `/api/users/${id}/approver-scope`,
+      resetPassword: (id: number) => `/api/users/${id}/password`,
+      delete: (id: number) => `/api/users/${id}`,
+    },
+  },
+  dashboard: "/api/dashboard",
+};
