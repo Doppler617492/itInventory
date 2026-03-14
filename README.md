@@ -77,7 +77,7 @@ Za PostgreSQL: u `.env` postavi `DATABASE_URL=postgresql://itproc:itproc@localho
 
 - Visit http://localhost:5173
 - Click "Desktop Application" or "Mobile Application"
-- You'll be redirected to `/login` - use `it@cungu.com` / `Dekodera1989@`
+- You'll be redirected to `/login` - use ` / `@`
 - Dashboard, Requests, Finance, Assets, Subscriptions, Reports are wired to the API
 
 ## Project Structure
